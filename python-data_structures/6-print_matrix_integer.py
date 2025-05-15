@@ -7,4 +7,3 @@ def print_matrix_integer(matrix=[[]]):
             if y is not (len(matrix[x]) - 1):
                 print(end=" ")
         print("")
-
