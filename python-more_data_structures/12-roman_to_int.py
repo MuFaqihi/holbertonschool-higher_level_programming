@@ -15,7 +15,7 @@ def roman_to_int(roman_string):
             return 0
     if len(roman_string) == 1:
         return romans[roman_string]
-
+    # Read the file
     # Make a list of each letter in the string and the one following it.
     # If the current roman numeral is repeated before a larger roman numeral,
     # return 0.
