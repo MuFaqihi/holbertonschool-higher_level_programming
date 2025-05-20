@@ -5,6 +5,7 @@ of given values, and provides getter and setter methods for manipulating
 its size. It also provides a method for calculating the area() of the square.
 """
 
+
 class Square:
     """Defines a square."""
     def __init__(self, size=0):
