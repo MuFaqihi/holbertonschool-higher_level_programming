@@ -9,7 +9,6 @@ displaying the square.
 """
 
 
-
 class Square:
     """Defines a square."""
 
