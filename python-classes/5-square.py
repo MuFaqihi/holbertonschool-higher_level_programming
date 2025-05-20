@@ -15,6 +15,7 @@ Example:
 """
 
 
+
 class Square:
     """Represents a square with size validation and operations.
 
