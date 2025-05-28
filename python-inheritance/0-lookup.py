@@ -1,8 +1,7 @@
 #!/usr/bin/python3
+"""Looks up for a list of attributes and methods of an object"""
 
 
 def lookup(obj):
-    """returns all objects in an objects dictionary
-        -> as a list
-    """
-    return dir(obj)
+    """Looks up for a list of attributes and methods of an object"""
+    return list(dir(obj))
