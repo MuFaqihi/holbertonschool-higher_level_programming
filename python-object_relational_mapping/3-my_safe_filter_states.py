@@ -1,22 +1,28 @@
 #!/usr/bin/python3
-"""
-Prend un argument et affiche toutes les valeurs dans la table des états
-de hbtn_0e_0_usa où le nom correspond à l'argument.
-
-"""
+"""write one that is safe from MySQL injections!"""
 
 import MySQLdb
 from sys import argv
 
+
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=argv[1], passwd=argv[2], db=argv[3])
-    cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (argv[4],))
-    rows = cursor.fetchall()
+    connexion = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3]
+    )
+    # Selects the text preceding the semicolon (if any)
+    # in argv[4] to prevent SQL injections.
+    argv_4 = argv[4].split(';')[0]
+
+    curs = connexion.cursor()
+    curs.execute("""SELECT * FROM states
+                 WHERE BINARY name LIKE '{}%'
+                 ORDER BY id;""".format(argv_4))
+    rows = curs.fetchall()
     for row in rows:
-        if row[1] == argv[4]:
-            print(row)
-    cursor.close()
-    db.close()
+        print(row)
+    curs.close()
+    connexion.close()
