@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Connect DB , new data
+script that adds the State object Louisian to the database hbtn_0e_6_usa
 """
 
 from sys import argv
